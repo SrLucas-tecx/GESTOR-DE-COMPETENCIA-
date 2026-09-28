@@ -1,0 +1,274 @@
+/* ==========================================================
+   COLORES: rojo, negro y amarillo
+   ========================================================== */
+:root {
+  --bg: #0b0b0b; /* negro de fondo */
+  --card: #171717; /* negro de tarjetas */
+  --ink: #f5f5f5; /* texto */
+  --muted: #a8a8a8; /* texto secundario */
+  --line: #2f2f2f; /* bordes */
+  --red: #e10600; /* rojo principal */
+  --red-soft: #ff5a52; /* rojo legible sobre negro (errores) */
+  --yellow: #ffd400; /* amarillo de acento */
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    16px/1.5 system-ui,
+    sans-serif;
+}
+
+a {
+  color: var(--yellow);
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* ---------- Títulos ---------- */
+h1,
+h2,
+h3,
+.brand {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+/* ---------- Cabecera y navegación ---------- */
+header.top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: #000;
+  border-bottom: 4px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+nav a,
+nav button {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+nav a:hover {
+  background: var(--red);
+}
+
+nav a.on,
+nav button.on {
+  background: var(--yellow);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ---------- Contenido ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4rem;
+}
+
+.hero {
+  padding: 2.5rem 0 1.5rem;
+  border-left: 8px solid var(--red);
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  max-width: 55ch;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.err {
+  color: var(--red-soft);
+  font-weight: 600;
+}
+
+/* ---------- Tarjetas y rejilla ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+a.card {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+a.card:hover {
+  border-color: var(--yellow);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+/* ---------- Tablas ---------- */
+.wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+th,
+td {
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+th {
+  font-size: 0.85rem;
+  color: var(--yellow);
+  font-weight: 600;
+  border-bottom: 2px solid var(--red);
+}
+
+td.n,
+th.n {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* El líder de la tabla lleva una barra amarilla */
+tr.top1 td:first-child {
+  box-shadow: inset 4px 0 var(--yellow);
+  font-weight: 700;
+}
+
+/* ---------- Etiquetas ---------- */
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 99px;
+  background: var(--line);
+  font-size: 0.8rem;
+}
+
+.tag.ok {
+  background: var(--yellow);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ---------- Botones ---------- */
+a.btn,
+button.btn {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.btn:hover,
+button.btn:hover {
+  background: var(--yellow);
+  color: #000;
+}
+
+button.ghost {
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Formularios ---------- */
+.row,
+form.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: end;
+  margin-bottom: 0.8rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--muted);
+  gap: 0.2rem;
+}
+
+input,
+select {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0f0f0f;
+  color: var(--ink);
+}
+
+input[type="number"] {
+  width: 5rem;
+}
